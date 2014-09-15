@@ -1,71 +1,21 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width">
-        <link rel="stylesheet" href="css/style.css"/>
-    </head>
-    <body>
-        <div class="contanier">
-            <header>
-                <img src="./images/logo.png" alt="logo area" class="logo"/>
-                <nav class="top_nav">
-                    <ul>
-                        <li><a href="">Home</a></li>
-                        <li><a href="">About</a></li>
-                        <li><a href="">Tutorials</a></li>
-                        <li><a href="">Contacts</a></li>
-                    </ul>
-                </nav>
-                <div class="clearpx"></div>
-            </header>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+</head>
+<body>
 
-            <section class="left_side">
-                <article>
-                    <header>
-                        <h1> Test app version 2.0</h1>
-                        <h2> This is sub header</h2>
-                    </header>
-                    <p> This is new This is content of article</p>
-                    <footer>
-                        --This article was written by Ranjit Jena
-                    </footer>
-                </article>
-            </section>
+<p><button class="help-btn">Help</button></p>
+<div class='header'><h1>Directory</h1></div>
+<div class='search-view'>
+    <input class='search-key' type="search" placeholder="Enter name"/>
+    <ul class='list employee-list'></ul>
+</div>
 
-            <aside class="right_side">
-                <div>
-                    <h2>Social links</h2>
-                    <ul>
-                        <li><a href="">Google</a></li>
-                        <li><a href="">Facebook</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h2>Related Article</h2>
-                    <article>
-                        <header>
-                            <h4>Related article</h4>
-                        </header>
-                        <p>Some content of article click below link to see more</p>
-                        <footer>
-                            <a href="">See more</a>
-                        </footer>
-                    </article>                
-                </div>
-            </aside>
+<script src="lib/jquery.js"></script>
+<script src="js/services/memory/EmployeeService.js"></script>
+<script src="js/app.js"></script>
 
-            <footer class="page_footer">
-                &copy; Copy write by Ranjit Jena
-            </footer>
-        </div>
-    </body>
+</body>
 </html>
-
-    
