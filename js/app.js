@@ -30,16 +30,6 @@
 
     /* ---------------------------------- Local Functions ---------------------------------- */
 
-    this.findByName = function() {
-      service.findByName($('.search-key').val()).done(function(employees) {
-          employeeListView.setEmployees(employees);
-      });
-    };
-
-    this.render = function() {
-      this.$el.html(this.template());
-      $('.content', this.$el).html(employeeListView.$el);
-      return this;
-    };
+    
  
 }());
