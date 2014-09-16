@@ -2,8 +2,12 @@
 (function () {
 
 
-  var homeTpl = Handlebars.compile($("#home-tpl").html());
-  var employeeListTpl = Handlebars.compile($("#employee-list-tpl").html());
+  //var homeTpl = Handlebars.compile($("#home-tpl").html());
+  //ar employeeListTpl = Handlebars.compile($("#employee-list-tpl").html());
+
+  HomeView.prototype.template = Handlebars.compile($("#home-tpl").html());
+  EmployeeListView.prototype.template = Handlebars.compile($("#employee-list-tpl").html());
+
 
     /* ---------------------------------- Local Variables ---------------------------------- */
     /*var service = new EmployeeService();
@@ -13,7 +17,8 @@
 
     var service = new EmployeeService();
     service.initialize().done(function () {
-      renderHomeView();
+      //renderHomeView();
+       $('body').html(new HomeView(service).render().$el);
     });
 
     /* --------------------------------- Event Registration -------------------------------- */
@@ -24,43 +29,17 @@
     //});
 
     /* ---------------------------------- Local Functions ---------------------------------- */
-    function findByName() {
 
-        service.findByName($('.search-key').val()).done(function (employees) {
-          $('.content').html(employeeListTpl(employees));
-        });
-        /*service.findByName($('.search-key').val()).done(function (employees) {
-            var l = employees.length;
-            var e;
-            $('.employee-list').empty();
-            for (var i = 0; i < l; i++) {
-                e = employees[i];
-                $('.employee-list').append('<li><a href="#employees/' + e.id + '">' + e.firstName + ' ' + e.lastName + '</a></li>');
-            }
-        });*/
-    }
+    this.findByName = function() {
+      service.findByName($('.search-key').val()).done(function(employees) {
+          employeeListView.setEmployees(employees);
+      });
+    };
 
-    function renderHomeView() {
-      $('body').html(homeTpl());
-      $('.search-key').on('keyup', findByName);
-     /* var html =
-        "<h1>Directory</h1>" +
-        "<input class='search-key' type='search' placeholder='Enter name'/>" +
-        "<ul class='employee-list'></ul>";
-      $('body').html(html);
-      $('.search-key').on('keyup', findByName);*/
-  }
-
+    this.render = function() {
+      this.$el.html(this.template());
+      $('.content', this.$el).html(employeeListView.$el);
+      return this;
+    };
+ 
 }());
-document.addEventListener('deviceready', function () {
-  if (navigator.notification) { // Override default HTML alert with native dialog
-      window.alert = function (message) {
-          navigator.notification.alert(
-              message,    // message
-              null,       // callback
-              "Workshop", // title
-              'OK'        // buttonName
-          );
-      };
-  }
-}, false);
