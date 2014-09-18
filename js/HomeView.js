@@ -21,7 +21,5 @@ var HomeView = function (service) {
       $('.content', this.$el).html(employeeListView.$el);
       return this;
     };
-
     this.initialize();
-
 }
